@@ -1,0 +1,101 @@
+$primary-text-color: #212121;
+$secondary-text-color: #737373;
+$disabled-text-color: #9b9b9b;
+$primary-background-color: #ffffff;
+$divider-color: #dbdbdb;
+
+// 颜色 数字越小，颜色越深
+$colors: (
+  'white-1': #ffffff,
+  'white-2': #f9f9f9,
+  'white-3': #f1f1f1,
+  'white-4': #e9e9e9,
+  'black-1': #282828,
+  'black-2': #1f1f1f,
+  'black-3': #161616,
+  'black-4': #0d0d0d,
+  'grey-0': #dbdbdb,
+  'grey-1': #cccccc,
+  'grey-2': #aaaaaa,
+  'grey-3': #909090,
+  'grey-4': #717171,
+  'grey-5': #606060
+);
+
+// 边框
+$border-color: map-get($colors, 'grey-0');
+$border-sizes: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+
+// 字体大小
+$base-font-size: 1rem;
+$font-sizes: (
+  xxs: 1.2,
+  xs: 1.3,
+  sm: 1.4,
+  md: 1.6,
+  lg: 1.8,
+  xl: 2,
+  xxl: 2.2,
+  xxxl: 3.2
+);
+// 字体粗细
+$font-weights: (
+  light: 300,
+  normal: 400,
+  middle: 500,
+  bold: 700
+);
+
+// flex布局
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly
+);
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+$percents: (
+  0: 0,
+  10: 10%,
+  25: 25%,
+  33: 33.3%,
+  50: 50%
+);
+
+// 方位
+$directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+
+// 间距
+$spacing-types: (
+  m: margin,
+  p: padding
+);
+$spacing-base-size: 1rem;
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3
+);

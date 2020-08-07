@@ -1,0 +1,94 @@
+header {
+  display: flex;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  padding: 0 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: background 0.65s;
+  &.background {
+    background: #fff;
+    a {
+      color: $secondary-text-color;
+    }
+    li:hover a {
+      color: $primary-text-color;
+    }
+    .upload,
+    .auth {
+      border: 1px solid $secondary-text-color;
+    }
+    .upload:hover {
+      color: $primary-text-color;
+      border-color: $primary-text-color;
+    }
+    .auth:hover {
+      border-color: $primary-text-color;
+      a {
+        color: $primary-text-color;
+      }
+    }
+  }
+  font-size: 14px;
+  z-index: 2;
+  a {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  nav ul li:hover a {
+    color: white;
+  }
+  nav ul li {
+    display: inline-block;
+    margin: 0 14px;
+  }
+  nav ul li a {
+    line-height: 60px;
+  }
+  nav {
+    flex: 1;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .upload,
+  .auth {
+    height: 30px;
+    line-height: 30px;
+  }
+  .upload span {
+    vertical-align: bottom;
+  }
+  .upload {
+    padding: 0 8px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: 0.65s;
+  }
+  .auth {
+    margin-left: 10px;
+    padding: 0 8px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: 0.65s;
+  }
+  .auth:hover,
+  .upload:hover {
+    color: white;
+    border: 1px solid white;
+  }
+  .auth:hover a {
+    color: white;
+  }
+}

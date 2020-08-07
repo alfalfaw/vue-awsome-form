@@ -1,0 +1,86 @@
+{
+  "menuPosition": "left",
+  "labelPosition": "left",
+  "labelWidth": "60",
+  "column": [
+    {
+      "type": "text",
+      "label": "姓名",
+      "prop": "name",
+      "row": true,
+      "span": 24,
+      "value": "张三"
+    },
+    {
+      "type": "text",
+      "label": "性别",
+      "prop": "gender",
+      "row": true,
+      "span": 24,
+      "value": "男"
+    },
+    {
+      "type": "password",
+      "label": "密码",
+      "prop": "password",
+      "row": true,
+      "span": 24,
+      "value": 1234
+    },
+    {
+      "type": "checkbox",
+      "label": "同意",
+      "prop": "agree",
+      "row": true,
+      "span": 24
+    },
+    {
+      "type": "checkbox",
+      "label": "已阅读",
+      "prop": "read",
+      "row": true,
+      "span": 24,
+      "value": "是",
+      "value2": "否"
+    },
+    {
+      "type": "select",
+      "label": "城市",
+      "prop": "city",
+      "value": "beijing",
+      "dicData": [
+        {
+          "label": "上海",
+          "value": "shanghai"
+        },
+        {
+          "label": "北京",
+          "value": "beijing"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "label": "内容",
+      "prop": "content",
+      "dicData": [
+        {
+          "label": "显示",
+          "value": 0,
+          "checked": true
+        },
+        {
+          "label": "隐藏",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "label": "意见反馈",
+      "prop": "argument",
+      "row": 10,
+      "value": "无"
+    }
+  ]
+}
