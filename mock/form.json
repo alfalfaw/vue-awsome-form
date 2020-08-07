@@ -5,11 +5,18 @@
   "column": [
     {
       "type": "text",
-      "label": "姓名",
+      "label": "用户名",
       "prop": "name",
       "row": true,
       "span": 24,
-      "value": "张三"
+      "value": "张三",
+      "rule": {
+        "required": true,
+        "message": "请输入用户名",
+        "message2": "用户名必须是4-8个字符",
+        "trigger": "blur",
+        "regex": "^[\\u4E00-\\u9FA5A-Za-z0-9_]{4,8}$"
+      }
     },
     {
       "type": "text",
@@ -17,7 +24,14 @@
       "prop": "gender",
       "row": true,
       "span": 24,
-      "value": "男"
+      "value": "男",
+      "rule": {
+        "required": true,
+        "message": "性别不为空",
+        "message2": "性别必须是一个汉字",
+        "trigger": "blur",
+        "regex": "^[\\u4E00-\\u9FA5]{1}$"
+      }
     },
     {
       "type": "password",
@@ -32,7 +46,15 @@
       "label": "同意",
       "prop": "agree",
       "row": true,
-      "span": 24
+      "span": 24,
+      "value": "agree",
+      "value2": "disagree",
+      "rule": {
+        "required": true,
+        "message": "必须同意注册协议",
+        "trigger": "blur",
+        "value": "agree"
+      }
     },
     {
       "type": "checkbox",
@@ -63,24 +85,36 @@
       "type": "radio",
       "label": "内容",
       "prop": "content",
+      "value": "hidden",
       "dicData": [
         {
           "label": "显示",
-          "value": 0,
-          "checked": true
+          "value": "show"
         },
         {
           "label": "隐藏",
-          "value": 1
+          "value": "hidden"
         }
-      ]
+      ],
+      "rule": {
+        "required": true,
+        "message": "请选择",
+        "trigger": "blur"
+      }
     },
     {
       "type": "textarea",
       "label": "意见反馈",
       "prop": "argument",
       "row": 10,
-      "value": "无"
+      "value": "无意见",
+      "rule": {
+        "required": true,
+        "message": "意见不能为空",
+        "message2": "意见必须在1-500个汉字以内",
+        "trigger": "blur",
+        "regex": "^[\\u4E00-\\u9FA5]{50,500}$"
+      }
     }
   ]
 }

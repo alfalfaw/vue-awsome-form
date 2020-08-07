@@ -12,7 +12,7 @@
       </div> -->
 
       <dir class="mt-5">
-        <custom-form v-if="option" @submit="submit" @reset="reset()" :option="option" v-model="model">
+        <custom-form v-if="option.column" @submit="submit" @reset="reset()" :option="option" v-model="model">
           <!-- template加slot属性可以使用具名插槽 -->
           <!-- <template slot="menuForm">
             <button type="submit" @click="submit">提交</button>
@@ -44,16 +44,9 @@ export default {
       title: '测试标题2',
       bannerUrl: 'https://filecdn.issmart.com.cn/ftp/static//image/4b9aacbf-2ee6-4613-b365-028e1836e7e4.png',
       // 表单数据
-      model: {
-        agree: true,
-
-        city: 'shanghai',
-        content: 1,
-        argument: '无',
-        read: '否'
-      },
+      model: {},
       // 表单字段
-      option: null
+      option: {}
     }
   },
   methods: {
@@ -61,7 +54,6 @@ export default {
       try {
         // 请求成功处理
         const res = await getFormData()
-
         this.option = res.data
       } catch (error) {
         // 请求失败处理
@@ -84,10 +76,10 @@ export default {
     //   console.log(err)
     // }
   },
-  created() {
+  created() {},
+  mounted() {
     this.fetchFormData()
-  },
-  mounted() {}
+  }
 }
 </script>
 
