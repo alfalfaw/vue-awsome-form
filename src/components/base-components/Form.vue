@@ -18,7 +18,13 @@
 
         <div v-else-if="item.type === 'password'">
           <label v-if="item.label" :for="'field#' + item.prop">{{ item.label }}</label>
-          <input :id="'field#' + item.prop" type="password" :value="value[item.prop]" @input="value[item.prop] = $event.target.value" />
+          <input
+            :id="'field#' + item.prop"
+            type="password"
+            :value="value[item.prop]"
+            @input="value[item.prop] = $event.target.value"
+            @blur="item.rule && validate($event.target.value, item.rule, $refs['error#' + item.prop][0])"
+          />
           <span v-if="item.rule" class="hide" :ref="'error#' + item.prop"></span>
         </div>
         <div v-else-if="item.type === 'select'">
@@ -106,15 +112,14 @@ export default {
       // console.log('-----start-------')
       // console.log(value, rule, errRef)
       // console.log('-----end-----')
-      // 空值判断, value 可能为 undefined
-
-      if (rule.required && (value === undefined || value.trim() === '' || value !== rule.value)) {
+      // 空值判断:值为空、值不等于指定值返回 false
+      if (rule.required && (value === undefined || value.trim() === '' || (rule.value && value !== rule.value))) {
         errRef.innerHTML = rule.message
         errRef.style.display = 'inline'
         return false
       }
 
-      // 合法性判断:正则存在，值不存在或不符合正则则返回false
+      // 合法性判断:正则存在，值不存在或不符合正则则返回 false
       if (rule.regex && (!value || !value.trim().match(rule.regex))) {
         errRef.innerHTML = rule.message2
         errRef.style.display = 'inline'
@@ -133,6 +138,8 @@ export default {
       // 文本域有regex判断，其他域有空值判断required
       this.option.column.forEach((item, index) => {
         // 如果有 rule 字段才会验证
+        console.log('in submit')
+
         if (item.rule && !this.validate(this.value[item.prop], item.rule, this.$refs['error#' + item.prop][0])) {
           cnt++
         }
@@ -155,7 +162,9 @@ export default {
       }
     }
   },
-  created() {},
+  created() {
+    console.log(this.value)
+  },
   computed: {},
   mounted() {}
 }

@@ -39,7 +39,14 @@
       "prop": "password",
       "row": true,
       "span": 24,
-      "value": 1234
+      "value": "1301231",
+      "rule": {
+        "required": true,
+        "message": "密码不为空",
+        "message2": "密码必须是8-13位",
+        "trigger": "blur",
+        "regex": "\\w{8,13}"
+      }
     },
     {
       "type": "checkbox",
@@ -113,7 +120,7 @@
         "message": "意见不能为空",
         "message2": "意见必须在1-500个汉字以内",
         "trigger": "blur",
-        "regex": "^[\\u4E00-\\u9FA5]{50,500}$"
+        "regex": "^[\\u4E00-\\u9FA5]{1,500}$"
       }
     }
   ]

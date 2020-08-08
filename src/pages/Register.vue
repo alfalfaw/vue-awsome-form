@@ -6,10 +6,10 @@
       <div class="banner">
         <img :src="bannerUrl" alt="" />
       </div>
-      <!-- <div class="date-picker mt-5">
-        <date-picker v-model="date"></date-picker>
-        Month:{{ date.month }} Year:{{ date.year }} Age:{{ date.age }}
-      </div> -->
+      <div class="date-picker mt-5">
+        <date-picker v-bind:month.sync="date.month" v-bind:year.sync="date.year"></date-picker>
+        Year:{{ date.year }} Month:{{ date.month }}
+      </div>
 
       <dir class="mt-5">
         <custom-form v-if="option.column" @submit="submit" @reset="reset()" :option="option" v-model="model">
@@ -25,21 +25,21 @@
 
 <script>
 import PageHeader from '@/components/base-components/Header'
-// import DatePicker from '@/components/base-components/DatePicker'
+import DatePicker from '@/components/base-components/DatePicker'
 import CustomForm from '@/components/base-components/Form'
 import { getFormData } from '@/api/formApi'
 export default {
   name: 'Register',
   components: {
     PageHeader,
-    // DatePicker,
+    DatePicker,
     CustomForm
   },
   data() {
     return {
       date: {
-        month: 1,
-        year: 2020
+        year: 2019,
+        month: 10
       },
       title: '测试标题2',
       bannerUrl: 'https://filecdn.issmart.com.cn/ftp/static//image/4b9aacbf-2ee6-4613-b365-028e1836e7e4.png',
@@ -54,6 +54,12 @@ export default {
       try {
         // 请求成功处理
         const res = await getFormData()
+        // 赋初值
+        res.data.column.forEach(item => {
+          if (item.value) {
+            this.model[item.prop] = item.value
+          }
+        })
         this.option = res.data
       } catch (error) {
         // 请求失败处理
